@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex Laravel</title>
+    <title>Pokemon :3</title>
 
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(180deg, #ff9900, #ff6a00);
+            background: linear-gradient(180deg, #E57687, #EC9CA8);
             margin: 0;
             padding: 40px;
             color: white;
@@ -38,7 +38,7 @@
 
         /* ENCABEZADO */
         thead tr {
-            background: #a85c00; /* marrón oscuro combinado */
+            background: #EC9CA8; 
         }
 
         th {
@@ -47,21 +47,21 @@
             font-size: 18px;
             font-weight: 700;
             letter-spacing: 1px;
-            color: #ffe4b5;
+            color: #ffffff;
         }
 
         /* FILAS ALTERNADAS */
         tbody tr:nth-child(odd) {
-            background: #ffb23c; /* amarillo suave */
+            background: #F3C3CF;
         }
 
         tbody tr:nth-child(even) {
-            background: #ff9e1d; /* naranja intermedio */
+            background: #EC9DAF;
         }
 
         /* HOVER */
         tbody tr:hover {
-            background: #ffd460; /* amarillo brillante */
+            background: #D52A52; 
             cursor: pointer;
             transition: 0.25s;
         }
@@ -70,7 +70,7 @@
             padding: 15px;
             text-align: center;
             font-size: 17px;
-            color: #5a3c00; /* marrón suave */
+            color: #5a3c00; 
             font-weight: 600;
         }
 
