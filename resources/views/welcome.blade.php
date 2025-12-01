@@ -3,126 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon :3</title>
-
+    <title>Pokedex May :3</title>
+    
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(180deg, #E57687, #EC9CA8);
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 40px;
-            color: white;
+            padding: 30px;
+            background: linear-gradient(145deg, #ffa9cdff, #ffb7d6);
+            color: #fff;
         }
 
-        h1 {
+        h2 {
             text-align: center;
-            font-size: 45px;
+            font-size: 55px;
             font-weight: 900;
-            text-shadow: 0px 4px 15px rgba(0,0,0,0.4);
-            margin-bottom: 35px;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.35);
+            letter-spacing: 2px;
+            font-family: 'More Sugar', cursive !important;
         }
 
-        /* CONTENEDOR */
-        .table-container {
-            width: 90%;
+        .grid {
+            width: 95%;
             margin: auto;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        /* ENCABEZADO */
-        thead tr {
-            background: #EC9CA8; 
-        }
-
-        th {
-            padding: 15px;
-            text-transform: uppercase;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #ffffff;
-        }
-
-        /* FILAS ALTERNADAS */
-        tbody tr:nth-child(odd) {
-            background: #F3C3CF;
-        }
-
-        tbody tr:nth-child(even) {
-            background: #EC9DAF;
-        }
-
-        /* HOVER */
-        tbody tr:hover {
-            background: #D52A52; 
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        td {
-            padding: 15px;
+        .card {
+            background: #ffe5f0;
+            border-radius: 20px;
+            padding: 20px;
             text-align: center;
-            font-size: 17px;
-            color: #5a3c00; 
-            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            transition: transform .25s, box-shadow .25s;
+            border: 4px solid #ff4f8b;
+            position: relative;
         }
 
-        .id-text {
-            font-weight: 900;
-            color: #7a4a00;
-            font-size: 20px;
+        .card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 30px rgba(255, 77, 136, 0.4);
         }
 
-        img {
-            width: 70px;
-            height: 70px;
-            transition: 0.2s;
-            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3));
+        .dot {
+            width: 18px;
+            height: 18px;
+            background: #ff9fbfff;
+            border-radius: 50%;
+            position: absolute;
+            top: 12px;
         }
 
-        tr:hover img {
-            transform: scale(1.15);
+        .dot.left {
+            left: 12px;
         }
+
+        .dot.right {
+            right: 12px;
+        }
+
+        .card img {
+            width: 120px;
+            margin: 10px 0;
+            transition: 0.25s;
+            filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.25));
+        }
+        .card:hover img {
+            transform: scale(1.2);
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: capitalize;
+            color: #ff94b8ff;
+            margin-top: 5px;
+            font-family: 'More Sugar', cursive !important;
+        }   
+
+        .id {
+            background: #ff4f8b;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .screen {
+            background: #ffd8e9;
+            padding: 10px;
+            border-radius: 15px;
+            border: 3px solid #ffd9e8ff;
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>Pokédex Laravel</h1>
+    <h2>POKÉDEX DE MAY</h2>
 
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Imagen</th>
-                    <th>Nombre</th>
-                </tr>
-            </thead>
+    <div class="grid">
 
-            <tbody>
-                @foreach ($pokemones as $pokemon)
-                    @php
-                        $url = $pokemon['url'];
-                        $id = explode('/', trim($url, '/'));
-                        $id = end($id);
-                    @endphp
+        @foreach ($pokemones as $pokemon)
+            @php
+                $url = $pokemon['url'];
+                $id = explode('/', trim($url, '/'));
+                $id = end($id);
+            @endphp
 
-                    <tr>
-                        <td class="id-text">{{ $id }}</td>
-                        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ $id }}.png" alt="{{ $pokemon['name'] }}"></td>
-                        <td>{{ $pokemon['name'] }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
+            <div class="card">
 
-        </table>
+
+                <span class="dot left"></span>
+                <span class="dot right"></span>
+
+                <div class="id">#{{ $id }}</div>
+
+                <div class="screen">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ $id }}.png" alt="{{ $pokemon['name'] }}">
+                </div>
+
+                <div class="name">{{ $pokemon['name'] }}</div>
+
+            </div>
+        @endforeach
+
     </div>
 
 </body>
